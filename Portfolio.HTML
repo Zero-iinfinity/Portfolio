@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Visual Design Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .portfolio-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-item .category {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-item h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .about h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Vikas Dubey</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Visual Design Specialist</h1>
+                <p>Creating compelling visual experiences through logo design, UI/UX, presentations, and brand identity. Passionate about transforming ideas into impactful designs.</p>
+                <a href="#portfolio" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section">
+            <div class="container">
+                <h2>My Portfolio</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" onclick="openModal('logoModal')">
+                        <div class="category">Logo Design</div>
+                        <h3>Saryhon Fine Arts Club</h3>
+                        <p>Designed a distinctive logo for the college fine arts club, capturing the creative essence and artistic spirit of the organization.</p>
+                        <p><strong>Tools:</strong> Canva, Photoshop</p>
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('logoModal2')">
+                        <div class="category">Logo Design</div>
+                        <h3>Annadata Project</h3>
+                        <p>Created a modern, impactful logo for a hackathon project website focused on agriculture and food security solutions.</p>
+                        <p><strong>Tools:</strong> Canva, Photoshop</p>
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('uiModal')">
+                        <div class="category">UI/UX Design</div>
+                        <h3>Annadata Website Prototype</h3>
+                        <p>Designed comprehensive UI/UX for an agriculture-focused platform, emphasizing user-friendly interface and intuitive navigation.</p>
+                        <p><strong>Tools:</strong> Figma,Canva</p>
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('uiModal2')">
+                        <div class="category">UI/UX Design</div>
+                        <h3>Hunarhut Platform</h3>
+                        <p>Developed user interface design for a skills-based platform for women, focusing on clean aesthetics and seamless user experience.</p>
+                        <p><strong>Tools:</strong> Figma, canva</p>
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('appModal')">
+                        <div class="category">Mobile App Design</div>
+                        <h3>Disaster Management App</h3>
+                        <p>Created intuitive mobile app interface for emergency response and disaster management, prioritizing clarity and quick access to critical information.</p>
+                        <p><strong>Tools:</strong> Figma, canva</p>
+  
+  
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('presentationModal')">
+                        <div class="category">Presentation Design</div>
+                        <h3>Hackathon & Academic Presentations</h3>
+                        <p>Designed multiple engaging presentations for hackathon projects and college presentations, combining visual appeal with clear information hierarchy.</p>
+                        <p><strong>Tools:</strong> PowerPoint, Canva, Adobe Illustrator</p>
+                    </div>
+
+                    <div class="portfolio-item" onclick="openModal('posterModal')">
+                        <div class="category">Poster Design</div>
+                        <h3>College Event Posters</h3>
+                        <p>Created various promotional posters for college events, focusing on eye-catching designs that effectively communicate event details.</p>
+                        <p><strong>Tools:</strong> Adobe Photoshop, Illustrator, Canva</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Core Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h3>Logo Design</h3>
+                        <p>Brand identity creation, vector graphics, and memorable logo concepts</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>UI/UX Design</h3>
+                        <p>User interface design, prototyping, and user experience optimization</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Presentation Design</h3>
+                        <p>Visual storytelling, data visualization, and engaging slide layouts</p>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Print Design</h3>
+                        <p>Poster design, promotional materials, and print-ready graphics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a passionate visual designer with hands-on experience in creating impactful designs across multiple platforms. Through various projects including hackathons and college initiatives, I've developed a strong foundation in logo design, UI/UX, and visual communication. I believe in the power of good design to solve problems and create meaningful connections between brands and their audiences. My approach combines creative thinking with practical solutions, always keeping the end user in mind.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <p>Ready to bring your visual ideas to life? Let's discuss your next project.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:your.email@example.com">machinelearning.vikas@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+1234567890">+91-7683016117</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <a href="https://www.linkedin.com/in/vikas-dubey-27719831a/" target="_blank">LinkedIn</a>
+                    </div>
+                     
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals for detailed project views -->
+    <div id="logoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Saryhon Fine Arts Club Logo</h2>
+            <p><strong>Project Overview:</strong> Designed a distinctive logo for the college fine arts club that needed to represent creativity, artistic expression, and cultural diversity.</p>
+            <p><strong>Design Process:</strong></p>
+            <ul>
+                <li>Research and mood board creation</li>
+                <li>Concept sketching and ideation</li>
+                <li>Digital refinement and color exploration</li>
+                <li>Final logo delivery in multiple formats</li>
+            </ul>
+            <p><strong>Outcome:</strong> Created a memorable visual identity that successfully represents the club's artistic mission and has been well-received by members and college administration.</p>
+        </div>
+    </div>
+
+    <div id="logoModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Annadata Project Logo</h2>
+            <p><strong>Project Overview:</strong> Developed a logo for a hackathon project focused on agriculture and food security, requiring elements that communicate growth, sustainability, and technology.</p>
+            <p><strong>Design Approach:</strong> Combined agricultural symbols with modern design elements to create a logo that appeals to both traditional farmers and tech-savvy users.</p>
+            <p><strong>Impact:</strong> The logo effectively represented the project's mission and contributed to the team's successful presentation at the hackathon.</p>
+        </div>
+    </div>
+
+    <div id="uiModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Annadata Website UI/UX</h2>
+            <p><strong>Project Scope:</strong> Complete UI/UX design for an agriculture-focused web platform connecting farmers with resources and markets.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Intuitive navigation for diverse user groups</li>
+                <li>Mobile-responsive design</li>
+                <li>Clear information hierarchy</li>
+                <li>Accessible design principles</li>
+            </ul>
+            <p><strong>Tools Used:</strong> Figma for wireframing and prototyping, Adobe XD for interactive demonstrations.</p>
+        </div>
+    </div>
+
+    <div id="uiModal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Hunarhut Platform Design</h2>
+            <p><strong>Project Overview:</strong> UI/UX design for a skills development and showcase platform, emphasizing user profile management and skill discovery.</p>
+            <p><strong>Design Highlights:</strong> Clean, modern interface with focus on portfolio presentation and skill matching algorithms visualization.</p>
+        </div>
+    </div>
+
+    <div id="appModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Disaster Management App</h2>
+            <p><strong>Project Challenge:</strong> Design a mobile app interface for emergency response that prioritizes clarity and quick access to critical information during high-stress situations.</p>
+            <p><strong>Design Solutions:</strong></p>
+            <ul>
+                <li>High contrast colors for visibility</li>
+                <li>Large, clear buttons for quick interaction</li>
+                <li>Simplified navigation structure</li>
+                <li>Emergency contact integration</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="presentationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Presentation Design Portfolio</h2>
+            <p><strong>Project Range:</strong> Multiple presentations for hackathon pitches and academic presentations, each tailored to specific audiences and objectives.</p>
+            <p><strong>Design Principles Applied:</strong></p>
+            <ul>
+                <li>Visual hierarchy and information flow</li>
+                <li>Consistent brand elements</li>
+                <li>Data visualization and infographics</li>
+                <li>Engaging slide transitions and layouts</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="posterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>College Event Posters</h2>
+            <p><strong>Project Variety:</strong> Created promotional materials for various college events including cultural festivals, academic conferences, and student activities.</p>
+            <p><strong>Design Approach:</strong> Each poster designed to capture the event's unique personality while maintaining clear information hierarchy and visual appeal.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        // Close modal when clicking the X
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
